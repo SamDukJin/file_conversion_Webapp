@@ -1,0 +1,143 @@
+.file-list {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   margin-top: 24px;
+}
+
+.file-item {
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   padding: 12px 16px;
+   background: var(--surface-color);
+   border: 1px solid var(--border-color);
+   border-radius: 12px;
+   transition: all 0.2s ease;
+}
+
+.file-item:hover {
+   border-color: var(--primary-color);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.file-item--converting {
+   border-color: var(--warning-color);
+   background: linear-gradient(90deg, var(--surface-color) 0%, rgba(251, 191, 36, 0.05) 100%);
+}
+
+.file-item--done {
+   border-color: var(--success-color);
+}
+
+.file-item--error {
+   border-color: var(--error-color);
+}
+
+.file-item__preview {
+   width: 48px;
+   height: 48px;
+   border-radius: 8px;
+   overflow: hidden;
+   background: var(--background-color);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+}
+
+.file-item__image {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.file-item__icon {
+   font-size: 24px;
+}
+
+.file-item__info {
+   flex: 1;
+   min-width: 0;
+}
+
+.file-item__name {
+   margin: 0 0 4px;
+   font-weight: 500;
+   color: var(--text-color);
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.file-item__meta {
+   margin: 0;
+   font-size: 0.875rem;
+   color: var(--text-muted);
+   display: flex;
+   gap: 12px;
+}
+
+.file-item__type {
+   padding: 2px 8px;
+   background: var(--primary-color-alpha);
+   color: var(--primary-color);
+   border-radius: 4px;
+   font-size: 0.75rem;
+   font-weight: 600;
+}
+
+.file-item__status {
+   width: 24px;
+   height: 24px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+}
+
+.file-item__spinner {
+   width: 20px;
+   height: 20px;
+   border: 2px solid var(--border-color);
+   border-top-color: var(--primary-color);
+   border-radius: 50%;
+   animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+.file-item__remove {
+   width: 32px;
+   height: 32px;
+   padding: 0;
+   border: none;
+   background: transparent;
+   color: var(--text-muted);
+   border-radius: 8px;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.2s ease;
+   flex-shrink: 0;
+}
+
+.file-item__remove:hover:not(:disabled) {
+   background: var(--error-color);
+   color: white;
+}
+
+.file-item__remove:focus {
+   outline: none;
+   box-shadow: 0 0 0 2px var(--primary-color-alpha);
+}
+
+.file-item__remove:disabled {
+   opacity: 0.5;
+   cursor: not-allowed;
+}
